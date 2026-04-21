@@ -3,21 +3,21 @@ import matplotlib.pyplot as plt
 from sklearn.tree import DecisionTreeClassifier
 from sklearn import tree
 
-## buat variabel untuk membaca data
+# =====Langkah Pertama=====
+# buat sebuah variabel yang digunakan untuk menampung fungsi pembaca file csv kamu
+# selanjutnya buat variiabel yang digunakan untuk menampung fungsi pemisah kolom
+# terakhir, buat variabel yang digunakan untuk menampung salah satu kolom yang dihapus tadi
 df = pd.read_csv('Dataset_Kelayakan_Kredit.csv')
 
-## buat variabel untuk membelah data
 x = df.drop(columns=['Status'])
-
-## buat variabel yang hanya berisikan 'Status'
 y = df['Status']
 
-# buat kerangka model
-# panggil algoritma decision tree
-model = DecisionTreeClassifier(criterion='gini', max_depth=3, random_state=42)
+# =====Langkah Kedua=====
+# buat variabel untuk menampung fungsi decisiontree
+# latih model tersebut dengan variabel x,y yang telah kita buat
 ## variabel random_state=42 digunakan untuk memastikan hasil pohon tetap konsisten saat program dijalankan
+model = DecisionTreeClassifier(criterion='gini', max_depth=3, random_state=42)
 
-## buat variabel untuk melatih model dengan memanggil fungsi fit()
 model.fit(x, y)
 
 print("Model berhasi di Training. Kini model sudah siap untuk digunakan")
